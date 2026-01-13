@@ -1,20 +1,17 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import { ref } from 'vue';
+  import Edit from './edit.vue';
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <title>Notes</title>
+    <h1>Notes</h1>
   </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="app-container">
+    <Edit />
+  </div>
 </template>
 
 <style scoped>
