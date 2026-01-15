@@ -1,44 +1,24 @@
 <script setup>
-  import { ref } from 'vue';
-  import Edit from './edit.vue';
+  import Edit from './Edit.vue';
+  import Notes from './Notes.vue';
+  import Search from './Search.vue';
+  import { useNotesStore } from './stores/notes';
+
+  const notesStore = useNotesStore();
 </script>
 
 <template>
-  <header>
+  <header class="header">
     <title>Notes</title>
-    <h1>Notes</h1>
+    <Notes />
   </header>
 
-  <div class="app-container">
+  <div class="wrapper">
+    <Search />
     <Edit />
   </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+<style>
+  @import './style.css';
 </style>
