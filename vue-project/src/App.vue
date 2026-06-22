@@ -1,22 +1,20 @@
 <script setup>
-  import Edit from './Edit.vue';
-  import Notes from './Notes.vue';
-  import Search from './Search.vue';
+  import Edit from './components/Edit.vue';
+  import Notes from './components/Notes.vue';
+  import Search from './components/Search.vue';
   import { useNotesStore } from './stores/notes';
 
   const notesStore = useNotesStore();
 </script>
 
 <template>
-  <header class="header">
-    <title>Notes</title>
-    <Notes />
-  </header>
-
-  <div class="wrapper">
-    <Search />
-    <Edit />
-  </div>
+    <div class="header">Notes</div>
+    <br>
+    <div class="wrapper">
+      <Edit />
+      <Search />
+      <Notes />
+    </div>
 </template>
 
 <style>
