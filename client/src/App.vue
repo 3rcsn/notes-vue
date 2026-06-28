@@ -2,9 +2,6 @@
   import Edit from './components/Edit.vue';
   import Notes from './components/Notes.vue';
   import Search from './components/Search.vue';
-  import { useNotesStore } from './stores/notes';
-
-  const notesStore = useNotesStore();
 </script>
 
 <template>

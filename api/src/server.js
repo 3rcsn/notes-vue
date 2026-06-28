@@ -1,10 +1,12 @@
-const {noteModel, noteSchema} = require('./models/note');
+const {note, noteSchema} = require('./models/note');
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 dotenv.config();
 
@@ -21,29 +23,30 @@ const autoIncrement = require('mongoose-sequence')(mongoose);
 
 noteSchema.plugin(autoIncrement, { inc_field: 'id' });
 
-app.get('/api/getNotes ', async (req, res) => {
+app.get('/api/getNotes', async (req, res) => {
     try {
-        const notes = await noteModel.find();
+        const notes = await note.find();
         res.json(notes);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(  500).send(error);
     }
 })
 
-app.post('/api/notes', async (req, res) => {
+app.post('/api/saveNote', async (req, res) => {
     try {
-        const newNote =  new noteModel({
-            name: req.body.name,
-            description: req.body.description,
+        const newNote = await note.create({
+            note: req.body.note
         });
         await newNote.save();
-        res.status(201).send(newNote);
+        res.status(201).send("success");
     } catch (error) {
         res.status(400).send(error);
     }
-    noteModel.insertOne(req.body).then(note => {
-    });
-})
+});
+
+app.get('/', (req, res) => {
+    res.json({ status: "vai tomando!" });
+});
 
 app.listen(PORT, () => {
     console.log('express up');

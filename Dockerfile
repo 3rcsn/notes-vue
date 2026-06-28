@@ -1,7 +1,7 @@
 FROM node:20-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm install --only=production
-COPY . .
+COPY /api/package*.json /app
+RUN npm install --omit=dev
+COPY ./api /app
 EXPOSE 3000
 CMD ["npm", "start"]

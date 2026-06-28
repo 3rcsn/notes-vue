@@ -1,5 +1,5 @@
 {
-  "name": "vue-project",
+  "name": "client",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
-    "pinia": "^3.0.4",
+    "axios": "^1.18.1",
     "tailwindcss": "^4.1.18",
     "vue": "^3.5.26"
   },
