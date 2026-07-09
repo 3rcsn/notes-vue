@@ -8,9 +8,9 @@
     <div class="header">Notes</div>
     <br>
     <div class="wrapper">
-      <Edit />
+      <Edit @refresh-notes="refreshNotes"/>
       <Search />
-      <Notes />
+      <Notes ref="notesRef"/>
     </div>
 </template>
 

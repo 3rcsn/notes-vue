@@ -18,8 +18,9 @@
 }
 
 .edit-note {
-  place-items: center;
   margin-bottom: 20px;
+  flex: 1;
+  display: flow;
 }
 
 .search-bar {
@@ -30,6 +31,10 @@
 
 .note {
   margin-bottom: 20px;
+}
+
+.btn {
+  cursor: pointer;
 }
 
 @media screen {

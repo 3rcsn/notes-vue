@@ -1,13 +1,15 @@
 <script>
   import api from "@/api.js";
-
+  import { reactive } from 'vue'
+  const state = reactive({ count: 0 })
   export default {
     name: "Notes",
+    state,
     data() {
       return {
-        notes: {},
+        notes: [],
         error: '',
-        text: ''
+        text: '',
       }
     },
     created() {
@@ -17,21 +19,19 @@
       getNotes() {
         api.get('/getNotes').then((response) => {
           this.notes = response.data;
-
           console.log(response.data);
         }).catch((error) => {
           console.log(error);
         })
       }
     }
-
   }
 </script>
 
 <template>
   <div class="notes-section">
     <div class="header">Your Notes</div>
-    <div v-for="note in notes" :key="note.__id" class="note">
+    <div v-for="note in notes" :key="note.id" class="note">
       <em> {{ note.note }} </em>
       <br>
       <em> {{ note.date }} </em>
